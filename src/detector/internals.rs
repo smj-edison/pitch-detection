@@ -62,9 +62,9 @@ where
 
     // Compute the autocorrelation
     copy_real_to_complex(signal, signal_complex, ComplexComponent::Re);
-    fft.process_with_scratch(signal_complex, scratch);
+    fft.process(signal_complex);
     modulus_squared(signal_complex);
-    inv_fft.process_with_scratch(signal_complex, scratch);
+    inv_fft.process(signal_complex);
     copy_complex_to_real(signal_complex, result, ComplexComponent::Re);
 }
 
